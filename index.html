@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b2033" />
+  <meta name="description" content="Educational ICH Q1A(R2) pharmaceutical stability study planner, data explorer, and significant-change screening tool. Not for assigning shelf life." />
+  <title>Pharmaceutical Stability Explorer | ICH Q1A(R2)</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="topbar">
+    <div class="brand-lockup"><span class="brand-mark" aria-hidden="true">S<span>·</span></span><div><div class="brand-name">Stability Systems</div><div class="brand-sub">ENGINEERING EXPLORERS</div></div></div>
+    <div class="top-right"><span class="tiny-status"><span class="dot"></span> Public research tool</span><span class="version">V0.1 · Q1A(R2)</span></div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Application navigation">
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="nav-links" aria-label="Sections">
+        <button class="nav-link active" data-tab="overview" aria-current="page"><span class="nav-icon">◈</span> Overview</button>
+        <button class="nav-link" data-tab="setup"><span class="nav-icon">▤</span> Study design</button>
+        <button class="nav-link" data-tab="data"><span class="nav-icon">≋</span> Stability data</button>
+        <button class="nav-link" data-tab="assessment"><span class="nav-icon">◇</span> Evaluation</button>
+        <button class="nav-link" data-tab="methods"><span class="nav-icon">⌁</span> Methods & sources</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="sidebar-rule"></div><div class="eyebrow">REGULATORY BASIS</div><strong>ICH Q1A(R2)</strong><small>General-case stability studies for new small-molecule drug substances and products.</small><span class="subtle-link">Q1E analysis reserved for V0.2</span></div>
+    </aside>
+    <main id="main" class="main">
+      <div id="errorBanner" class="message error" role="alert" hidden></div>
+      <div id="infoBanner" class="message info" role="status" hidden></div>
+      <section id="tab-overview" class="tab-panel">
+        <div class="hero">
+          <div class="eyebrow cyan">PHARMACEUTICAL DEVELOPMENT / STABILITY SCIENCE</div>
+          <h1>Stability is demonstrated.<br><em>Not assumed.</em></h1>
+          <p>Explore ICH-guided long-term, intermediate and accelerated studies. Review measured changes and make conditional decisions with transparent evidence — without treating stress exposure as an expiry date.</p>
+          <div class="hero-actions"><button class="btn primary" data-go="setup">Design a stability study <span aria-hidden="true">↗</span></button><button class="btn ghost" data-go="data">Explore dataset</button></div>
+          <div class="hero-aside"><div class="hero-tag">ENGINEERING NOTE / 001</div><div class="hero-aside-title">The accelerated-aging trap</div><div class="hero-aside-text">Six months at 40°C does not automatically equal a defined shelf life at 25°C.</div><span class="hero-aside-foot">Q1A(R2) / Q1E distinction</span></div>
+        </div>
+        <div class="section-head"><div><div class="eyebrow">CURRENT STUDY</div><h2 id="overviewName">—</h2></div><button id="resetDemo" class="btn subtle small">Load synthetic example</button></div>
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-label">Measured observations</div><div class="stat-number" id="sTotal">—</div><div class="stat-note">Across entered batches and conditions</div></div>
+          <div class="stat-card"><div class="stat-label">Distinct batches</div><div class="stat-number" id="sBatches">—</div><div class="stat-note">Identity only; protocol suitability not reviewed</div></div>
+          <div class="stat-card"><div class="stat-label">Potential change flags</div><div class="stat-number warm" id="sTriggers">—</div><div class="stat-note">Require scientific confirmation</div></div>
+          <div class="stat-card"><div class="stat-label">Not evaluable</div><div class="stat-number" id="sUnresolved">—</div><div class="stat-note">Missing limits, baseline, or criteria</div></div>
+        </div>
+        <div class="duo">
+          <article class="panel"><div class="panel-heading"><div><div class="eyebrow">STUDY DESIGN</div><h3>ICH storage conditions</h3></div><span class="micro-label">GENERAL CASE</span></div><div id="conditionCards" class="condition-list"></div></article>
+          <article class="panel"><div class="panel-heading"><div><div class="eyebrow">DECISION SUPPORT</div><h3>Intermediate pathway</h3></div></div><div id="intermediateSummary"></div><div class="panel-footer"><button class="text-button" data-go="assessment">Review evidence and decision trace →</button></div></article>
+        </div>
+        <div class="nonclaim"><strong>Evidence boundary</strong><span>This is an educational prototype, not validated GMP software, an expiry calculation or a regulatory submission. Synthetic example data are not experimental evidence. Verify conclusions against the current product-specific stability protocol.</span></div>
+      </section>
+      <section id="tab-setup" class="tab-panel" hidden>
+        <div class="page-intro"><div class="eyebrow cyan">01 / CONFIGURATION</div><h1>Study design</h1><p>Select the product context before generating an ICH condition plan. Special cases will be explicitly blocked from general-case evaluation.</p></div>
+        <article class="panel"><h3>Applicability & protocol</h3><form id="studyForm" class="form-grid">
+          <label class="span-full">Study title<input id="studyName" maxlength="160" required autocomplete="off" /></label>
+          <label>Study article<select id="productType"><option value="product">Drug product</option><option value="substance">Drug substance (API)</option></select></label>
+          <label>Modality<select id="modality"><option value="small-molecule">Conventional small molecule</option><option value="biologic">Biologic / biotechnology</option><option value="complex">Other complex modality</option></select></label>
+          <label>Intended storage<select id="storage"><option value="room">General room temperature</option><option value="refrigerated">Refrigerated</option><option value="frozen">Frozen</option></select></label>
+          <label>Long-term option<select id="longTerm"><option value="long25">25°C ± 2°C / 60% RH ± 5%</option><option value="long30">30°C ± 2°C / 65% RH ± 5%</option></select></label>
+          <label>Container-closure classification<select id="containerType"><option value="unknown">Not yet established</option><option value="impermeable">Impermeable</option><option value="semipermeable">Semipermeable</option><option value="other">Other / general case</option></select></label>
+          <label>Planned long-term duration (months)<input id="duration" type="number" min="12" max="120" step="12" /></label>
+          <label class="checkbox-label span-full"><input id="aqueous" type="checkbox" /> Aqueous drug-product formulation (important when semipermeable)</label>
+          <div class="span-full form-actions"><button type="submit" class="btn primary">Apply study design</button><button type="button" id="newProject" class="btn ghost light">Start blank study</button></div>
+        </form></article>
+        <div id="applicabilityPanel" class="message info"></div>
+        <article class="panel"><div class="panel-heading"><div><div class="eyebrow">PLANNED PROTOCOL</div><h3>Time-point schedule</h3></div><span class="micro-label">EDITABLE IN FULL STUDY PROTOCOL</span></div><p class="small-muted">Illustrative Q1A(R2) schedules for a general room-temperature case. The minimum at submission is not the planned full stability duration.</p><div id="scheduleTables"></div></article>
+      </section>
+      <section id="tab-data" class="tab-panel" hidden>
+        <div class="page-intro"><div class="eyebrow cyan">02 / INPUT DATA</div><h1>Stability dataset</h1><p>Define attributes and acceptance criteria, then enter observed values by batch, condition, and elapsed study month. All data stay in this browser session unless you export them.</p></div>
+        <div class="duo align-start">
+          <article class="panel"><div class="panel-heading"><div><div class="eyebrow">01 / ATTRIBUTES</div><h3>Specification library</h3></div></div><div id="attributeList" class="attribute-list"></div><form id="attributeForm" class="inline-form"><label>Attribute name<input id="attrName" required maxlength="100" placeholder="e.g., Total impurities" /></label><div class="form-grid compact"><label>Category<select id="attrKind"><option value="assay">Assay</option><option value="degradant">Degradation product</option><option value="ph">pH</option><option value="dissolution">Dissolution</option><option value="physical">Physical / appearance</option><option value="functionality">Functionality</option><option value="potency">Potency</option><option value="other">Other</option></select></label><label>Unit<input id="attrUnit" required maxlength="36" placeholder="%, mg, pH" /></label><label>Lower acceptance limit<input id="attrLower" inputmode="decimal" type="number" step="any" placeholder="Optional" /></label><label>Upper acceptance limit<input id="attrUpper" inputmode="decimal" type="number" step="any" placeholder="Optional" /></label></div><p class="small-muted">Limits are user-defined and must come from your approved or proposed criteria. The assay category applies the Q1A(R2) 5% relative-change screening rule for drug products (requires method-context review).</p><button class="btn outline" type="submit">+ Add attribute</button></form></article>
+          <article class="panel"><div class="panel-heading"><div><div class="eyebrow">02 / MEASUREMENTS</div><h3>Add observation</h3></div></div><form id="observationForm" class="form-grid compact"><label>Batch ID<input id="obsBatch" required maxlength="90" placeholder="BATCH-001" /></label><label>Condition<select id="obsCondition"></select></label><label>Attribute<select id="obsAttribute"></select></label><label>Time (months)<input id="obsMonth" required type="number" min="0" max="120" step="any" value="0" /></label><label>Observed value<input id="obsValue" required type="number" step="any" placeholder="Numeric result" /></label><label>Reviewer observation<select id="obsManual"><option value="none">No manual change flag</option><option value="reviewer-significant">Reviewer flagged significant change</option></select></label><label class="span-full">Note (optional)<input id="obsNote" maxlength="500" placeholder="Observation details or basis" /></label><div class="span-full"><button type="submit" class="btn primary">Add measurement</button></div></form><div class="mini-rule"></div><div class="eyebrow">FILES & DATA</div><div class="button-row"><button class="btn outline small" id="exportCSV">Export CSV</button><button class="btn outline small" id="exportJSON">Export JSON</button><button class="btn outline small" id="importCSV">Import CSV</button><button class="btn outline small" id="importJSON">Import JSON</button></div><input id="fileInput" type="file" accept=".csv,.json,text/csv,application/json" hidden /><div class="small-muted">Import replaces the current study data after confirmation. JSON contains the full study; CSV contains attributes + observations only.</div></article>
+        </div>
+        <article class="panel"><div class="panel-heading"><div><div class="eyebrow">OBSERVED VALUES</div><h3>Measurements register</h3></div><span id="rowCount" class="micro-label"></span></div><div class="toolbar"><label>Filter condition<select id="filterCondition"><option value="all">All conditions</option></select></label><label>Filter attribute<select id="filterAttribute"><option value="all">All attributes</option></select></label></div><div class="table-scroll"><table><thead><tr><th>Batch</th><th>Condition</th><th>Month</th><th>Attribute</th><th>Result</th><th>Screening</th><th><span class="sr-only">Delete</span></th></tr></thead><tbody id="observationsBody"></tbody></table></div><p class="small-muted">The register displays at most 300 matching rows for performance. Exports include the complete dataset.</p></article>
+      </section>
+      <section id="tab-assessment" class="tab-panel" hidden>
+        <div class="page-intro"><div class="eyebrow cyan">03 / EVIDENCE REVIEW</div><h1>Observed stability</h1><p>Trends display actual entered measurements, not fitted shelf-life predictions. A screening trigger is a request for review, not a regulatory outcome.</p></div>
+        <div id="assessmentNotice" class="message info"></div>
+        <article class="panel"><div class="panel-heading"><div><div class="eyebrow">ATTRIBUTE TRENDS</div><h3>Measured data over time</h3></div><label class="selector-label">Plot attribute <select id="chartAttribute"></select></label></div><div id="chartArea" class="chart-area" role="img" aria-label="Measured stability trends by batch and condition"></div><div id="chartLegend" class="chart-legend"></div><p class="small-muted">Lines connect existing observations for visual orientation only; no model fit, confidence interval, or interpolation is used in regulatory decisions. Each condition is shown separately.</p></article>
+        <div class="duo align-start"><article class="panel"><div class="eyebrow">ICH CONDITIONAL RULE</div><h3>Intermediate-study assessment</h3><div id="intermediateDetail"></div></article><article class="panel"><div class="eyebrow">LIMITATIONS / DATA GAPS</div><h3>Evidence completeness</h3><ul id="warningsList" class="warning-list"></ul></article></div>
+        <article class="panel"><div class="panel-heading"><div><div class="eyebrow">TRACEABLE OUTPUT</div><h3>Screening decision trace</h3></div><button id="downloadReport" class="btn outline small">Export evidence report (.md)</button></div><div class="table-scroll"><table><thead><tr><th>Observation</th><th>Attribute / time</th><th>Decision</th><th>Regulatory/analysis basis</th></tr></thead><tbody id="assessmentsBody"></tbody></table></div><div class="small-muted">No expiry date or retest period is estimated by this release.</div></article>
+      </section>
+      <section id="tab-methods" class="tab-panel" hidden>
+        <div class="page-intro"><div class="eyebrow cyan">04 / TECHNICAL REFERENCE</div><h1>Methodology & scope</h1><p>Deterministic rules and explicit exclusion criteria. This tool intentionally separates measurement, screening, interpretation and final regulatory decisions.</p></div>
+        <div class="method-grid"><article class="panel"><div class="eyebrow">ICH Q1A(R2) / §2.1.7.1 & §2.2.7.1</div><h3>Storage conditions</h3><p>For eligible general room-temperature products, select long-term 25°C/60% RH or 30°C/65% RH, plus accelerated 40°C/75% RH. Intermediate 30°C/65% RH applies conditionally only when long-term is 25°C/60% RH.</p></article><article class="panel"><div class="eyebrow">V0.1 METHOD / DESCRIPTIVE</div><h3>Measured change</h3><p>Absolute change = result − baseline. For drug-product assay screening, relative magnitude (%) = 100 × |result − initial| / |initial|, for a documented comparable assay measurement basis. A nonzero condition-specific time-zero measurement is required.</p></article><article class="panel"><div class="eyebrow">ICH Q1A(R2) / §2.1.7.1</div><h3>Drug substance</h3><p>Significant change at accelerated conditions is defined as failure to meet its specification. This tool requires user-entered acceptance criteria. It does not apply the drug-product assay threshold to substances.</p></article><article class="panel"><div class="eyebrow">ICH Q1A(R2) / §2.2.7.1</div><h3>Drug product</h3><p>Potential significant-change screens cover assay, degradation products and context-relevant acceptance criteria for physical/functionality, pH and dissolution. Dissolution requires the appropriate 12-unit test; a single result alone does not verify that method requirement.</p></article><article class="panel"><div class="eyebrow">ICH Q1E / FUTURE VERSION</div><h3>No automatic shelf-life conversion</h3><p>Time-temperature equivalence, Arrhenius kinetics and unqualified Q10 factors are not used. Regression and confidence-bound shelf-life evaluation are out of scope until separately verified and appropriately qualified.</p></article><article class="panel"><div class="eyebrow">APPLICABILITY GATE</div><h3>Unsupported cases</h3><p>Refrigerated, frozen, aqueous products in semipermeable containers, biologics and complex modalities require specialized study designs. V0.1 does not render these categories eligible by substituting the general room-temperature conditions.</p></article></div>
+        <article class="panel"><div class="eyebrow">AUTHORITATIVE REFERENCES</div><h3>Source and version register</h3><ul class="sources"><li><a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/q1ar2-stability-testing-new-drug-substances-and-products" target="_blank" rel="noopener noreferrer">FDA — ICH Q1A(R2), Stability Testing (Final, 2003)</a><small>Baseline in V0.1</small></li><li><a href="https://www.ema.europa.eu/en/documents/scientific-guideline/ich-q-1-r2-stability-testing-new-drug-substances-and-products-step-5_en.pdf" target="_blank" rel="noopener noreferrer">EMA — ICH Q1A(R2), source text</a><small>Sections 2.1.6–2.1.7 and 2.2.6–2.2.7</small></li><li><a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/q1e-evaluation-stability-data" target="_blank" rel="noopener noreferrer">FDA — ICH Q1E, Evaluation of Stability Data</a><small>Statistical evaluation reference; not implemented V0.1</small></li><li><a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/q1-stability-testing-drug-substances-and-drug-products" target="_blank" rel="noopener noreferrer">FDA — Consolidated ICH Q1 (Draft, June 2025)</a><small>Draft; not implemented as a final regulation</small></li></ul></article>
+        <div class="nonclaim"><strong>Research / educational prototype</strong><span>Guidance documents and regulatory expectations depend on product, dosage form, region and current status. This tool is not validated for 21 CFR Part 11, GxP records or regulatory decision-making. Review source standards before applying results.</span></div>
+      </section>
+      <footer class="footer"><span>Pharmaceutical Stability Explorer © 2026 · MIT-licensed source · Standalone GitHub Pages application</span><span>ICH Q1A(R2) based · Version 0.1</span></footer>
+    </main>
+  </div>
+</body>
+</html>

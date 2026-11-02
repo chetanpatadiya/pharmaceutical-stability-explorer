@@ -1,0 +1,516 @@
+{
+  "schemaVersion": 1,
+  "study": {
+    "name": "Synthetic tablet stability example",
+    "productType": "product",
+    "modality": "small-molecule",
+    "storage": "room",
+    "longTerm": "long25",
+    "container": "other",
+    "aqueous": false,
+    "durationMonths": 24
+  },
+  "attributes": [
+    {
+      "id": "assay",
+      "name": "Assay",
+      "kind": "assay",
+      "unit": "% label claim",
+      "lower": 90,
+      "upper": 110,
+      "assayThresholdPct": 5
+    },
+    {
+      "id": "imp-a",
+      "name": "Degradation product A",
+      "kind": "degradant",
+      "unit": "%",
+      "lower": 0,
+      "upper": 1
+    }
+  ],
+  "observations": [
+    {
+      "id": "DEMO-B01-long25-0-assay",
+      "batch": "DEMO-B01",
+      "condition": "long25",
+      "month": 0,
+      "attributeId": "assay",
+      "value": 100,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-long25-0-imp-a",
+      "batch": "DEMO-B01",
+      "condition": "long25",
+      "month": 0,
+      "attributeId": "imp-a",
+      "value": 0.12,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-long25-3-assay",
+      "batch": "DEMO-B01",
+      "condition": "long25",
+      "month": 3,
+      "attributeId": "assay",
+      "value": 99.8,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-long25-3-imp-a",
+      "batch": "DEMO-B01",
+      "condition": "long25",
+      "month": 3,
+      "attributeId": "imp-a",
+      "value": 0.16,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-long25-6-assay",
+      "batch": "DEMO-B01",
+      "condition": "long25",
+      "month": 6,
+      "attributeId": "assay",
+      "value": 99.5,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-long25-6-imp-a",
+      "batch": "DEMO-B01",
+      "condition": "long25",
+      "month": 6,
+      "attributeId": "imp-a",
+      "value": 0.19,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-long25-9-assay",
+      "batch": "DEMO-B01",
+      "condition": "long25",
+      "month": 9,
+      "attributeId": "assay",
+      "value": 99.1,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-long25-9-imp-a",
+      "batch": "DEMO-B01",
+      "condition": "long25",
+      "month": 9,
+      "attributeId": "imp-a",
+      "value": 0.24,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-long25-12-assay",
+      "batch": "DEMO-B01",
+      "condition": "long25",
+      "month": 12,
+      "attributeId": "assay",
+      "value": 98.8,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-long25-12-imp-a",
+      "batch": "DEMO-B01",
+      "condition": "long25",
+      "month": 12,
+      "attributeId": "imp-a",
+      "value": 0.28,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-accelerated-0-assay",
+      "batch": "DEMO-B01",
+      "condition": "accelerated",
+      "month": 0,
+      "attributeId": "assay",
+      "value": 100,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-accelerated-0-imp-a",
+      "batch": "DEMO-B01",
+      "condition": "accelerated",
+      "month": 0,
+      "attributeId": "imp-a",
+      "value": 0.12,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-accelerated-3-assay",
+      "batch": "DEMO-B01",
+      "condition": "accelerated",
+      "month": 3,
+      "attributeId": "assay",
+      "value": 97.9,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-accelerated-3-imp-a",
+      "batch": "DEMO-B01",
+      "condition": "accelerated",
+      "month": 3,
+      "attributeId": "imp-a",
+      "value": 0.48,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-accelerated-6-assay",
+      "batch": "DEMO-B01",
+      "condition": "accelerated",
+      "month": 6,
+      "attributeId": "assay",
+      "value": 94.2,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B01-accelerated-6-imp-a",
+      "batch": "DEMO-B01",
+      "condition": "accelerated",
+      "month": 6,
+      "attributeId": "imp-a",
+      "value": 1.12,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-long25-0-assay",
+      "batch": "DEMO-B02",
+      "condition": "long25",
+      "month": 0,
+      "attributeId": "assay",
+      "value": 100.4,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-long25-0-imp-a",
+      "batch": "DEMO-B02",
+      "condition": "long25",
+      "month": 0,
+      "attributeId": "imp-a",
+      "value": 0.1,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-long25-3-assay",
+      "batch": "DEMO-B02",
+      "condition": "long25",
+      "month": 3,
+      "attributeId": "assay",
+      "value": 100,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-long25-3-imp-a",
+      "batch": "DEMO-B02",
+      "condition": "long25",
+      "month": 3,
+      "attributeId": "imp-a",
+      "value": 0.14,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-long25-6-assay",
+      "batch": "DEMO-B02",
+      "condition": "long25",
+      "month": 6,
+      "attributeId": "assay",
+      "value": 99.7,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-long25-6-imp-a",
+      "batch": "DEMO-B02",
+      "condition": "long25",
+      "month": 6,
+      "attributeId": "imp-a",
+      "value": 0.19,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-long25-9-assay",
+      "batch": "DEMO-B02",
+      "condition": "long25",
+      "month": 9,
+      "attributeId": "assay",
+      "value": 99.3,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-long25-9-imp-a",
+      "batch": "DEMO-B02",
+      "condition": "long25",
+      "month": 9,
+      "attributeId": "imp-a",
+      "value": 0.21,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-long25-12-assay",
+      "batch": "DEMO-B02",
+      "condition": "long25",
+      "month": 12,
+      "attributeId": "assay",
+      "value": 99,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-long25-12-imp-a",
+      "batch": "DEMO-B02",
+      "condition": "long25",
+      "month": 12,
+      "attributeId": "imp-a",
+      "value": 0.26,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-accelerated-0-assay",
+      "batch": "DEMO-B02",
+      "condition": "accelerated",
+      "month": 0,
+      "attributeId": "assay",
+      "value": 100.4,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-accelerated-0-imp-a",
+      "batch": "DEMO-B02",
+      "condition": "accelerated",
+      "month": 0,
+      "attributeId": "imp-a",
+      "value": 0.1,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-accelerated-3-assay",
+      "batch": "DEMO-B02",
+      "condition": "accelerated",
+      "month": 3,
+      "attributeId": "assay",
+      "value": 98.5,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-accelerated-3-imp-a",
+      "batch": "DEMO-B02",
+      "condition": "accelerated",
+      "month": 3,
+      "attributeId": "imp-a",
+      "value": 0.42,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-accelerated-6-assay",
+      "batch": "DEMO-B02",
+      "condition": "accelerated",
+      "month": 6,
+      "attributeId": "assay",
+      "value": 96,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B02-accelerated-6-imp-a",
+      "batch": "DEMO-B02",
+      "condition": "accelerated",
+      "month": 6,
+      "attributeId": "imp-a",
+      "value": 0.88,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-long25-0-assay",
+      "batch": "DEMO-B03",
+      "condition": "long25",
+      "month": 0,
+      "attributeId": "assay",
+      "value": 99.7,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-long25-0-imp-a",
+      "batch": "DEMO-B03",
+      "condition": "long25",
+      "month": 0,
+      "attributeId": "imp-a",
+      "value": 0.14,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-long25-3-assay",
+      "batch": "DEMO-B03",
+      "condition": "long25",
+      "month": 3,
+      "attributeId": "assay",
+      "value": 99.4,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-long25-3-imp-a",
+      "batch": "DEMO-B03",
+      "condition": "long25",
+      "month": 3,
+      "attributeId": "imp-a",
+      "value": 0.17,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-long25-6-assay",
+      "batch": "DEMO-B03",
+      "condition": "long25",
+      "month": 6,
+      "attributeId": "assay",
+      "value": 99,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-long25-6-imp-a",
+      "batch": "DEMO-B03",
+      "condition": "long25",
+      "month": 6,
+      "attributeId": "imp-a",
+      "value": 0.22,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-long25-9-assay",
+      "batch": "DEMO-B03",
+      "condition": "long25",
+      "month": 9,
+      "attributeId": "assay",
+      "value": 98.7,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-long25-9-imp-a",
+      "batch": "DEMO-B03",
+      "condition": "long25",
+      "month": 9,
+      "attributeId": "imp-a",
+      "value": 0.26,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-long25-12-assay",
+      "batch": "DEMO-B03",
+      "condition": "long25",
+      "month": 12,
+      "attributeId": "assay",
+      "value": 98.4,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-long25-12-imp-a",
+      "batch": "DEMO-B03",
+      "condition": "long25",
+      "month": 12,
+      "attributeId": "imp-a",
+      "value": 0.29,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-accelerated-0-assay",
+      "batch": "DEMO-B03",
+      "condition": "accelerated",
+      "month": 0,
+      "attributeId": "assay",
+      "value": 99.7,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-accelerated-0-imp-a",
+      "batch": "DEMO-B03",
+      "condition": "accelerated",
+      "month": 0,
+      "attributeId": "imp-a",
+      "value": 0.14,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-accelerated-3-assay",
+      "batch": "DEMO-B03",
+      "condition": "accelerated",
+      "month": 3,
+      "attributeId": "assay",
+      "value": 97.2,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-accelerated-3-imp-a",
+      "batch": "DEMO-B03",
+      "condition": "accelerated",
+      "month": 3,
+      "attributeId": "imp-a",
+      "value": 0.51,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-accelerated-6-assay",
+      "batch": "DEMO-B03",
+      "condition": "accelerated",
+      "month": 6,
+      "attributeId": "assay",
+      "value": 94.5,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    },
+    {
+      "id": "DEMO-B03-accelerated-6-imp-a",
+      "batch": "DEMO-B03",
+      "condition": "accelerated",
+      "month": 6,
+      "attributeId": "imp-a",
+      "value": 1.03,
+      "manual": "none",
+      "note": "Synthetic demonstration — not measured data"
+    }
+  ],
+  "plans": {},
+  "example": true
+}
